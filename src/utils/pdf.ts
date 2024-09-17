@@ -1,3 +1,4 @@
+// @ts-ignore
 import pdfParse from 'pdf-parse';
 
 // Extracts the text from the Buffer object of the PDF and returns a string
