@@ -3,7 +3,8 @@
  */
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nextConnect from 'next-connect';
-import multer, { Multer } from 'multer';
+//import multer, { Multer } from 'multer';
+import multer from 'multer';
 
 /**
  * Internal dependencies
@@ -11,7 +12,10 @@ import multer, { Multer } from 'multer';
 import { aiPdfHandler } from '@Utils/aiPdfHandler';
 import { Schema } from '@Types/schemaTypes';
 
-const upload: Multer = multer({ storage: multer.memoryStorage() });
+//const upload: Multer = multer({ storage: multer.memoryStorage() });
+
+const upload = multer({ storage: multer.memoryStorage() });
+
 const uploadMiddleware = upload.single('pdf');
 
 type ExtendedNextApiRequest = NextApiRequest & {
