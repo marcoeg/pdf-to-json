@@ -1,0 +1,17 @@
+response:
+ ```javascript
+[ 
+  [ "Software Development Services", "$5,000.00" ], 
+  [ "Advisory and Consulting Services", "$10,000.00" ] 
+]
+```
+Error parsing JSON string: SyntaxError: Unexpected token '`', "```javascr"... is not valid JSON
+
+removed from index.tsx
+             <Image
+              width={270}
+              height={105}
+              alt="JSONIFY Logo"
+              src={JSONIFYLogoTextOnly}
+              className="mx-auto"
+            />

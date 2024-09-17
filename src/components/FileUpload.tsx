@@ -244,13 +244,13 @@ export default function FileUploadForm() {
       <form onSubmit={handleSubmit} className="flex flex-wrap items-start">
         <div className="w-full p-1 lg:w-3/5">
           <div className="p-6 bg-white rounded-lg shadow-md">
-            <h2 className="mb-4 text-lg font-semibold">Define Your Data</h2>
+            <h2 className="mb-4 text-lg font-semibold">Define Data Schema</h2>
             <div>
               <label
                 htmlFor="schemaOptions"
                 className={styles.formControlLabel}
               >
-                Select a predefined schema from the dropdown or build your own.
+                Select a predefined schema from the dropdown or build a custom one.
               </label>
 
               <select
@@ -306,7 +306,7 @@ export default function FileUploadForm() {
         </div>
         <div className="w-full p-1 lg:w-2/5">
           <div className="p-6 mb-4 bg-white rounded-lg shadow-md lg:mb-0">
-            <h2 className="mb-4 text-lg font-semibold">Upload Your PDF</h2>
+            <h2 className="mb-4 text-lg font-semibold">Upload PDF Files</h2>
             <DropZone
               onDragStateChange={onDragStateChange}
               onFilesDrop={onFilesDrop}
@@ -353,13 +353,13 @@ export default function FileUploadForm() {
             </DropZone>
           </div>
           <div className="p-6 mt-2 bg-white rounded-lg shadow-md">
-            <h2 className="mb-4 text-lg font-semibold">Generate Data</h2>
+            <h2 className="mb-4 text-lg font-semibold">Extract Data</h2>
             <div className="mt-auto">
               <button
                 type="submit"
                 className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:ring-2 focus:ring-blue-400"
               >
-                {isLoading ? <Spinner /> : 'Generate Data'}
+                {isLoading ? <Spinner /> : 'Extract Data'}
               </button>
             </div>
             <div className="mt-4 text-red-600">

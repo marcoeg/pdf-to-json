@@ -24,7 +24,7 @@ const buildPrompt = (documentText: string, summary: string): string => {
   prompt += documentText;
 
   prompt +=
-    '\n\nCreate a valid Javascript array with data about this text in the format below.\n\n';
+    '\n\nCreate a valid Javascript array with data about this text in the format below. Return the following data as a plain JavaScript array, but do not include any markdown formatting like ``` or ```javascript. Just output the array in plain text.\n\n';
 
   prompt += summary;
 
@@ -45,9 +45,9 @@ export const createChatCompletion = async (
 
     console.log('Firing prompt ID:', promptObject.id, '...');
     console.time('Execution Time for Prompt ID: ' + promptObject.id);
-
+    // 'gpt-3.5-turbo'  'gpt-4o-mini'
     const response = await openai.createChatCompletion({
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-4o-mini',
       temperature: 0.3,
       messages: [
         {
@@ -67,6 +67,7 @@ export const createChatCompletion = async (
     } else {
       // copy the prompt object
       const resultPromptObject = { ...promptObject };
+      //console.log("response:\n",message)
       resultPromptObject.output = convertTextToValidArray(message);
 
       return resultPromptObject;
