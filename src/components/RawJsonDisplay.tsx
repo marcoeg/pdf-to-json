@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 // @ts-ignore
 import SyntaxHighlighter from 'react-syntax-highlighter';
+// @ts-ignore
 import { atomOneLight } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 
