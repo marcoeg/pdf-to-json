@@ -4,13 +4,22 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nextConnect from 'next-connect';
 import multer from 'multer';
-import type { Express } from 'express';
 
 /**
  * Internal dependencies
  */
 import { aiPdfHandler } from '@Utils/aiPdfHandler';
 import { Schema } from '@Types/schemaTypes';
+
+// Define the MulterFile interface manually
+interface MulterFile {
+  fieldname: string;
+  originalname: string;
+  encoding: string;
+  mimetype: string;
+  size: number;
+  buffer: Buffer;
+}
 
 // Configure multer for file uploads using memory storage
 const upload = multer({ storage: multer.memoryStorage() });
@@ -19,7 +28,7 @@ const uploadMiddleware = upload.single('pdf');
 
 // Define a custom request type extending NextApiRequest to include multer file
 type ExtendedNextApiRequest = NextApiRequest & {
-  file: Express.Multer.File; // Import the correct Express.Multer.File type
+  file: MulterFile; // Use the manually defined MulterFile interface
 };
 
 // Create the API handler
